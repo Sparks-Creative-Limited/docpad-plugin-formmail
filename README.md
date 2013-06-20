@@ -16,7 +16,7 @@ npm install --save docpad-plugin-formmail
 
 ### Setup
 
-Configure the path to intercept on your server and athe email details for sending out form data in the docpad
+Configure the path to be intercepted on your server and the email details for sending out form data in the DocPad
 configuration file:
 
 ```coffeescript
