@@ -8,3 +8,4 @@ v2.0.0 June 20, 2013
 	- Added MIT License
 	- Initial code commit and document update for configuration settings
 	- Minor documentation update
+	- Minor code correction for obtaining plugin configuration

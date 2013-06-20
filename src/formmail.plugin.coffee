@@ -5,7 +5,7 @@ module.exports = (BasePlugin) ->
 	class basicAuthPlugin extends BasePlugin
 		name: 'contacthandler'
 
-		config = docpad.getConfig().plugins.contacthandler
+		config = docpad.getConfig().plugins.formmail
 		smtp = nodemailer.createTransport('SMTP', config.transport)
 
 		serverExtend: (opts) ->
