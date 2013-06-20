@@ -1,21 +1,32 @@
-# Export Plugin
+nodemailer = require 'nodemailer'
+
 module.exports = (BasePlugin) ->
-	# Define Plugin
-	class YourpluginnamePlugin extends BasePlugin
-		# Plugin name
-		name: 'yourpluginname'
 
-		# Render
-		# Called per document, for each extension conversion. Used to render one extension to another.
-		render: (opts) ->
-			# Prepare
-			{inExtension,outExtension,file} = opts
+	class basicAuthPlugin extends BasePlugin
+		name: 'contacthandler'
 
-			# Upper case the text document's content if it is using the convention txt.(uc|uppercase)
-			if inExtension in ['uc','uppercase'] and outExtension in ['txt',null]
+		config = docpad.getConfig().plugins.contacthandler
+		smtp = nodemailer.createTransport('SMTP', config.transport)
 
-				# Render synchronously
-				opts.content = opts.content.toUpperCase()
+		serverExtend: (opts) ->
+			{server} = opts
 
-			# Done
-			return
+			server.post config.path, (req, res) ->
+				enquiry = req.body
+
+				mailOptions = {
+					to: config.to,
+					subject: 'Enquiry from ' + enquiry.name + ' <' + enquiry.email + '>',
+					text: enquiry.message,
+					html: '<p>' + enquiry.message + '</p>'
+				}
+
+				smtp.sendMail mailOptions, (err, resp) ->
+					if(err)
+						console.log err
+					else
+						console.log("Message sent: " + resp.message);
+
+				res.redirect '/'
+
+			@

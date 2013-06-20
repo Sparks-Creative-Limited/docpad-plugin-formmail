@@ -27,7 +27,9 @@
 		"node": ">=0.8",
 		"docpad": ">=6"
 	},
-	"dependencies": {},
+	"dependencies": {
+        "nodemailer": ">=0.4.4"
+    },
 	"devDependencies": {
 		"coffee-script": "~1.6.2"
 	},
