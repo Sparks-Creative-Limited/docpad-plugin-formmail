@@ -16,3 +16,6 @@ npm-debug.log
 
 test/out/
 out/
+
+.idea
+*.iml

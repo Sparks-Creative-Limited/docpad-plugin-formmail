@@ -1,27 +1,27 @@
 {
-	"name": "docpad-plugin-yourpluginname",
+	"name": "docpad-plugin-formmail",
 	"version": "2.0.0",
-	"description": "DocPad plugin that adds the ability to render Something to Something Else",
-	"homepage": "https://github.com/yourgithubusername/docpad-plugin-yourpluginname",
+	"description": "DocPad plugin that adds the ability to handle form submissions and mail out their content.",
+	"homepage": "https://github.com/Sparks-Creative-Limited/docpad-plugin-formmail",
 	"keywords": [
 		"docpad",
 		"docpad-plugin",
-		"something",
-		"somethingelse"
+		"form",
+		"mail"
 	],
-	"author": "Copyright holders name <copyright holder's email> (copyright holder's website url)",
+	"author": "Sparks Creative Limited <enquiries@sparks.uk.net> (http://www.sparks.uk.net)",
 	"maintainers": [
-		"Your name <your email> (your github url)"
+		"Simon Sparks <simon@sparks.uk.net> (https://github.com/simonsparks)"
 	],
 	"contributors": [
-		"Your name <your email> (your github url)"
+		"Simon Sparks <simon@sparks.uk.net> (https://github.com/simonsparks)"
 	],
 	"bugs": {
-		"url": "https://github.com/yourgithubusername/docpad-plugin-yourpluginname/issues"
+		"url": "https://github.com/Sparks-Creative-Limited/docpad-plugin-formmail/issues"
 	},
 	"repository" : {
 		"type": "git",
-		"url": "https://github.com/yourgithubusername/docpad-plugin-yourpluginname.git"
+		"url": "https://github.com/Sparks-Creative-Limited/docpad-plugin-formmail.git"
 	},
 	"engines" : {
 		"node": ">=0.8",
@@ -31,8 +31,8 @@
 	"devDependencies": {
 		"coffee-script": "~1.6.2"
 	},
-	"main": "./out/yourpluginname.plugin.js",
+	"main": "./out/formmail.plugin.js",
 	"scripts": {
-		"test": "node ./out/yourpluginname.test.js"
+		"test": "node ./out/formmail.test.js"
 	}
 }
