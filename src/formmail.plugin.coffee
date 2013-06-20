@@ -2,7 +2,7 @@ nodemailer = require 'nodemailer'
 
 module.exports = (BasePlugin) ->
 
-	class basicAuthPlugin extends BasePlugin
+	class FormMailPlugin extends BasePlugin
 		name: 'formmail'
 
 		config = docpad.getConfig().plugins.formmail
