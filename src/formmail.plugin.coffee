@@ -3,7 +3,7 @@ nodemailer = require 'nodemailer'
 module.exports = (BasePlugin) ->
 
 	class basicAuthPlugin extends BasePlugin
-		name: 'contacthandler'
+		name: 'formmail'
 
 		config = docpad.getConfig().plugins.formmail
 		smtp = nodemailer.createTransport('SMTP', config.transport)
