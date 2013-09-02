@@ -16,6 +16,7 @@ module.exports = (BasePlugin) ->
 
 				mailOptions = {
 					to: config.to,
+					from: config.transport.auth.user,
 					subject: 'Enquiry from ' + enquiry.name + ' <' + enquiry.email + '>',
 					text: enquiry.message,
 					html: '<p>' + enquiry.message + '</p>'
