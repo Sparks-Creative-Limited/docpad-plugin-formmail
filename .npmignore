@@ -1,7 +1,6 @@
 .travis*
 Makefile
 Cakefile
-History.md
 
 src/
 out/*.tester.*
@@ -11,3 +10,4 @@ test/
 
 .idea
 *.iml
+*.xml
