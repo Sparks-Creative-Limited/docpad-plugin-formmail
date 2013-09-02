@@ -10,3 +10,6 @@ v2.0.0 June 20, 2013
 	- Minor documentation update
 	- Minor code correction for obtaining plugin configuration
 	- Minor code correction of naming the plugin
+
+v2.0.1 September 02, 2013
+	- add from field to nodemailer mailOptions (Issue #1)

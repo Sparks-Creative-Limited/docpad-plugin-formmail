@@ -1,7 +1,7 @@
 {
 	"name": "docpad-plugin-formmail",
-	"version": "2.0.0",
-	"description": "DocPad plugin that adds the ability to handle form submissions and mail out their content.",
+	"version": "2.0.1",
+	"description": "DocPad plugin to handle form submissions and mail out their content.",
 	"homepage": "https://github.com/Sparks-Creative-Limited/docpad-plugin-formmail",
 	"keywords": [
 		"docpad",
