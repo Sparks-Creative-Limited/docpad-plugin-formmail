@@ -1,5 +1,6 @@
 nodemailer = require 'nodemailer'
 captchagen = require 'captchagen'
+crypto = require 'crypto'
 
 module.exports = (BasePlugin) ->
 
@@ -11,16 +12,19 @@ module.exports = (BasePlugin) ->
 
 		serverExtend: (opts) ->
 			{express,server} = opts
+			success = config.redirect || '/'
 
 			if(config.captcha)
+				fail = config.captcha.redirect || '/'
+				secret = crypto.randomBytes(16).toString 'hex'
 				server.use express.cookieParser()
-				server.use express.session secret: 'keyboard cat'
+				server.use express.session secret: secret
 				server.use config.path, (req, res, next) ->
 					if(req.body.captcha == req.session.captcha)
 						next()
 					else
-						res.redirect '/'
-				server.get config.captcha.path, (req, res) ->
+						res.redirect fail
+				server.get config.captcha.image, (req, res) ->
 					captcha = captchagen.generate config.captcha.options
 					captcha.buffer (err, buf) ->
 						req.session.captcha = captcha.text()
@@ -43,6 +47,6 @@ module.exports = (BasePlugin) ->
 					else
 						console.log("Message sent: " + resp.message);
 
-				res.redirect '/'
+				res.redirect success
 
 			@
