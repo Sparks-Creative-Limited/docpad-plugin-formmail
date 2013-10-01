@@ -1,4 +1,5 @@
 nodemailer = require 'nodemailer'
+captchagen = require 'captchagen'
 
 module.exports = (BasePlugin) ->
 
@@ -9,7 +10,21 @@ module.exports = (BasePlugin) ->
 		smtp = nodemailer.createTransport('SMTP', config.transport)
 
 		serverExtend: (opts) ->
-			{server} = opts
+			{express,server} = opts
+
+			if(config.captcha)
+				server.use express.cookieParser()
+				server.use express.session secret: 'keyboard cat'
+				server.use config.path, (req, res, next) ->
+					if(req.body.captcha == req.session.captcha)
+						next()
+					else
+						res.redirect '/'
+				server.get config.captcha.path, (req, res) ->
+					captcha = captchagen.generate config.captcha.options
+					captcha.buffer (err, buf) ->
+						req.session.captcha = captcha.text()
+						res.send buf
 
 			server.post config.path, (req, res) ->
 				enquiry = req.body

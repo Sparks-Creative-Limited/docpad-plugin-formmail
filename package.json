@@ -28,8 +28,9 @@
 		"docpad": ">=6"
 	},
 	"dependencies": {
-        "nodemailer": ">=0.4.4"
-    },
+		"nodemailer": ">=0.4.4",
+        "captchagen": "0.0.2"
+	},
 	"devDependencies": {
 		"coffee-script": "~1.6.2"
 	},
