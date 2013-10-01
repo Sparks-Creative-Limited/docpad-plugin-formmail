@@ -25,21 +25,18 @@ options. A full configuration entry would look similar to:
 		formmail:
 			path: '/contact',
 			redirect: '/thanks',
-			transport: {
+			transport:
 				service: 'Gmail',
-				auth: {
+				auth:
 					user: 'noreply@example.com',
 					pass: 'password'
-				}
-			}
 			to: 'enquiries@example.com',
-			captcha: {
+			captcha:
 				image: '/captcha',
 				redirect: '/tryagain',
-				options: {
+				options:
 					height: 150,
 					width: 300
-				}
 ```
 
 Where:
